@@ -1,0 +1,71 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "#AzLocation#"
+        },
+        "networkInterfaceName": {
+            "value": "#VmName#-nic"
+        },
+        "enableAcceleratedNetworking": {
+            "value": true
+        },
+        "networkSecurityGroupName": {
+            "value": "#VmName#-nsg"
+        },
+        "networkSecurityGroupRules": {
+            "value": [
+                {
+                    "name": "SSH",
+                    "properties": {
+                        "priority": 300,
+                        "protocol": "TCP",
+                        "access": "Deny",
+                        "direction": "Inbound",
+                        "sourceAddressPrefix": "*",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "22"
+                    }
+                }
+            ]
+        },
+        "subnetName": {
+            "value": "Default"
+        },
+        "virtualNetworkId": {
+            "value": "/subscriptions/d0001dcb-7492-4bd4-86a3-95451dfe91e8/resourceGroups/#RgName#/providers/Microsoft.Network/virtualNetworks/#AzLocation#-vnet"
+        },
+        "publicIpAddressName": {
+            "value": "#VmName#-ip"
+        },
+        "publicIpAddressType": {
+            "value": "Dynamic"
+        },
+        "publicIpAddressSku": {
+            "value": "Basic"
+        },
+        "virtualMachineName": {
+            "value": "#VmName#"
+        },
+        "virtualMachineComputerName": {
+            "value": "#VmName#"
+        },
+        "virtualMachineRG": {
+            "value": "#RgName#"
+        },
+        "osDiskType": {
+            "value": "Standard_LRS"
+        },
+        "virtualMachineSize": {
+            "value": "Standard_D2as_v4"
+        },
+        "adminUsername": {
+            "value": "groot"
+        },
+        "adminPassword": {
+            "value": null
+        }
+    }
+}
